@@ -1,26 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-const inter = localFont({
-  src: [
-    {
-      path: "../../fonts/Inter-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../fonts/Inter-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../fonts/Inter-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -28,13 +13,8 @@ const inter = localFont({
 const notoNastaliqUrdu = localFont({
   src: [
     {
-      path: "../../fonts/NotoNastaliqUrdu-Regular.woff2",
+      path: "../../public/fonts/NotoNastaliqUrdu-Regular.woff2",
       weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../fonts/NotoNastaliqUrdu-Bold.woff2",
-      weight: "700",
       style: "normal",
     },
   ],
