@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  src: url('/fonts/NotoNastaliqUrdu-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  src: url('/fonts/NotoNastaliqUrdu-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-primary-green: #166534;
+  --color-primary-light: #DCFCE7;
+  --color-secondary-brown: #92400E;
+  --color-accent-yellow: #F59E0B;
+  --color-danger-red: #DC2626;
+  --color-bg-light: #FFFBEB;
+  --color-surface-light: #FFFFFF;
+  --color-text-primary: #052E16;
+  --color-text-secondary: #6B7280;
+  --color-bg-dark: #0A1F0F;
+  --color-surface-dark: #132A1A;
+  --color-text-primary-dark: #DCFCE7;
+  --color-text-secondary-dark: #9CA3AF;
+  --color-border-dark: #374151;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --font-urdu: 'Noto Nastaliq Urdu';
+  --font-inter: 'Inter';
+}
+
+/* Base Styles */
+body {
+  background-color: #FFFBEB;
+  color: #052E16;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+/* Dark Mode Styles */
+.dark body {
+  background-color: #0A1F0F;
+  color: #DCFCE7;
+}
+
+/* RTL Support Base Styles */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* Mobile Container */
+.mobile-container {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 431px) {
+  .mobile-container {
+    padding: 0 16px;
+  }
+}
+
+/* Urdu Font Class */
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2;
+}
