@@ -376,4 +376,49 @@ Frontend (.env.local):
 - Database schema changes only via Alembic migrations
 - Urdu font files in /fonts, never load from CDN
 
+### GLOBAL CODE READABILITY & EXPLICIT LOGIC RULES
 
+**STRICT RULE:** Do not use any shorthand techniques or "syntactic sugar." All code must be written in an expanded, descriptive, and beginner-friendly format to ensure maximum readability and logic tracing.
+
+1. **NO OBJECT SHORTHAND**
+   - Always write both the Key and the Value in objects.
+   - ❌ Bad: { theme }
+   - ✅ Good: { theme: theme }
+
+2. **NO IMPLICIT RETURNS**
+   - Every arrow function MUST use curly braces `{}` and the `return` keyword.
+   - ❌ Bad: const add = (a, b) => a + b;
+   - ✅ Good:
+     const add = (a, b) => {
+     return a + b;
+     };
+
+3. **EXPLICIT ZUSTAND UPDATES**
+   - When using the `set` function, never update inline. Create a separate variable for the new value first.
+   - ✅ Example:
+     toggleLanguage: () => {
+     return set((state) => {
+     const currentLanguage = state.language;
+     const nextLanguage = currentLanguage === 'ur' ? 'en' : 'ur';
+     return { language: nextLanguage };
+     });
+     }
+
+4. **EXPLICIT PROPS HANDLING**
+   - Do not destructure props in the function signature. Pass the `props` object and extract values inside the body.
+   - ❌ Bad: const Button = ({ label }) => { ... }
+   - ✅ Good:
+     const Button = (props) => {
+     const label = props.label;
+     return <button>{label}</button>;
+     };
+
+5. **ARRAY METHODS CLARITY**
+   - Functions like `.map()`, `.filter()`, and `.find()` must always use explicit returns and clear item naming.
+   - ✅ Example:
+     const userList = users.map((user) => {
+     return user.name;
+     });
+
+6. **NO TERNARY CHAINING**
+   - Avoid complex nested ternary operators. Use clear `if/else` statements or separate variables for clarity.
